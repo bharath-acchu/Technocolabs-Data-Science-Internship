@@ -71,7 +71,8 @@ if st.button("Predict"):
     x = round(predicts[0],2)
     prob = model.predict_proba([features])
     y = prob[0]
-    z =int(round(y[0]*100))
+    y = max(y)
+    z =int(round(y*100))
     if x == 1:
         st.warning("This account will be defaulted with a probability of {}%.".format(z))
     else:
